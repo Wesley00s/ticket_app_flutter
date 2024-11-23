@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 
-Color primary = Colors.blueAccent;
+Color primary = const Color(0xFF526799);
 
 class AppStyles {
   static Color primaryColor = primary;
   static Color textColor = Colors.black54;
-  static Color ticketBlue = const Color(0xFF526799);
+  static Color ticketBlue = primary;
+  static Color ticketOrange = const Color(0xFFF37B67);
+  static Color kakiColor = const Color(0xFFd2BDB6);
+  static Color iconColor = const Color(0xFFBFC2DF);
+  static Color btnColor = const Color(0xD91120CE);
+  static Color ticketColor = Colors.white;
 
   static Color bgColor = const Color(0xFFECF3F5);
   static TextStyle textStyle = TextStyle(
