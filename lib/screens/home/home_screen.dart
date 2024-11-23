@@ -1,9 +1,11 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:ticket_app/base/res/media.dart';
+import 'package:ticket_app/base/res/styles/app_style.dart';
+import 'package:ticket_app/base/utils/app_json.dart';
 import 'package:ticket_app/base/widgets/app_double_text.dart';
 import 'package:ticket_app/base/widgets/ticket_view.dart';
-import '../base/res/media.dart';
-import '../base/res/styles/app_style.dart';
+import 'package:ticket_app/screens/widgets/hotel.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -20,6 +22,7 @@ class HomeScreen extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -71,8 +74,36 @@ class HomeScreen extends StatelessWidget {
                 const AppDoubleText(
                   bigText: 'Upcoming Flights',
                   smalText: 'View all',
+                  route: "/all_tickets_screen",
                 ),
-                const TicketView()
+                const SizedBox(
+                  height: 20,
+                ),
+                SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: ticketList
+                          .map((sigleTicket) => TicketView(ticket: sigleTicket))
+                          .toList(),
+                    )),
+                const SizedBox(
+                  height: 40,
+                ),
+                const AppDoubleText(
+                  bigText: 'Hotels',
+                  smalText: 'View all',
+                  route: "/all_hotels_screen",
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: hotelList
+                          .map((sigleHotel) => Hotel(hotel: sigleHotel))
+                          .toList(),
+                    )),
               ],
             ),
           ),
