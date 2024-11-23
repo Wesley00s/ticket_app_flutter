@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import '../res/styles/app_style.dart';
 
 class AppDoubleText extends StatelessWidget {
-  const AppDoubleText(
-      {super.key, required this.bigText, required this.smalText});
   final String bigText;
   final String smalText;
+  final String route;
+  const AppDoubleText(
+      {super.key, required this.bigText, required this.smalText, required this.route});
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +16,10 @@ class AppDoubleText extends StatelessWidget {
       children: [
         Text(bigText, style: AppStyles.headLine2),
         InkWell(
-          onTap: () {
-
-          },
-          child: Text(smalText, style: AppStyles.textStyle.copyWith(
-            color: AppStyles.primaryColor
-          )),
+          onTap: () => Navigator.pushNamed(context, route),
+          child: Text(smalText,
+              style:
+                  AppStyles.textStyle.copyWith(color: AppStyles.primaryColor)),
         )
       ],
     );
